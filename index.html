@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="桃聯區會考落點分析，幫助使用者分析會考成績，提供學校落點參考。">
+    <meta name="keywords" content="桃聯區, 會考, 落點分析, 教育, 學校">
+    <meta name="author" content="桃聯區教育局">
+    <title>網站維修中</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Noto Sans TC', sans-serif;
+            background: #f5f7fa;
+            color: #333;
+        }
+        .container {
+            text-align: center;
+            padding: 40px 60px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .container:hover {
+            transform: translateY(-10px);
+        }
+        .container h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .container p {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        .container a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .container a:hover {
+            background-color: #0056b3;
+        }
+        .countdown {
+            font-size: 1.5em;
+            color: #d9534f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>網站維修中</h1>
+        <p>目前尚未開放，正在維修中。<br>請稍後再試。</p>
+        <div class="countdown" id="countdown"></div>
+        <a href="https://sites.google.com/view/tyctw/%E6%9C%83%E8%80%83%E8%90%BD%E9%BB%9E%E5%88%86%E6%9E%90%E5%B9%B3%E5%8F%B0%E7%B6%AD%E8%AD%B7%E4%B8%AD">返回首頁</a>
+    </div>
+    <script>
+        function countdownTimer(endTime) {
+            const countdownElement = document.getElementById('countdown');
+            function updateTimer() {
+                const now = new Date().getTime();
+                const distance = endTime - now;
+
+                if (distance < 0) {
+                    clearInterval(interval);
+                    countdownElement.innerHTML = "維修完成";
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                countdownElement.innerHTML = `${days}天 ${hours}小時 ${minutes}分鐘 ${seconds}秒`;
+            }
+
+            updateTimer();
+            const interval = setInterval(updateTimer, 1000);
+        }
+
+        const maintenanceEndTime = new Date("Nov 5, 2024 12:00:00").getTime(); // 修改此處的日期和時間
+        countdownTimer(maintenanceEndTime);
+    </script>
+</body>
+</html>
